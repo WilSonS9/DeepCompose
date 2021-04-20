@@ -93,6 +93,8 @@ def midi_to_txt(pattern):
 names = os.listdir('./bach/bach')
 names.remove('.DS_Store')
 
+# Change this part to adjust the file or folder you want to open
+
 with open('./texts/composite.txt', 'wb') as f:
     for die in names:
         count = 0

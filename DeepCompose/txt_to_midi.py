@@ -10,14 +10,14 @@ class NoteEvent():
         self.on = on
 
 names = os.listdir('./texts')
-name = names[randint(0, len(names)-1)]
-print name
-        
-#with open('data/classical/txt/' + name, 'rb') as f:
-with open('./texts/eighthGenerated.txt', 'rb') as f:
-    song_txt = f.read()
 
-# print song_txt
+# File name, will an output file with this name and try to read a file with this name
+# If the output file doesn't have the same name as the input file, just change the input files and output files manually
+fName = '9'
+        
+# Input file
+with open('./texts/' + fName + '.txt', 'rb') as f:
+    song_txt = f.read()
 
 pattern = midi.Pattern()
 track = midi.Track()
@@ -32,7 +32,6 @@ for song_txt2 in song_txt:
     time = 0
     tempo = 40
     val = 64
-    # print(split_song)
     lowest2 = inf
     highest2 = 0 - inf
     lowest = 0
@@ -66,7 +65,7 @@ for song_txt2 in song_txt:
             dur = int(dur)
 
             val += delta_val
-            print(val)
+            # print(val)
             
             # dur is inverse of duration...
             if dur > min_dur:
@@ -100,5 +99,5 @@ for song_txt2 in song_txt:
 
 track.append(midi.EndOfTrackEvent(tick=1))
 
-midi.write_midifile("./generated/numbaEight.mid", pattern)
-
+# Output file
+midi.write_midifile("./generated/" + fName + ".mid", pattern)
