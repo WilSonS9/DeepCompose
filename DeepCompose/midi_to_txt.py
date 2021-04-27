@@ -90,19 +90,22 @@ def midi_to_txt(pattern):
 
     return song_txt
 
-names = os.listdir('./bach/mixed')
+names = os.listdir('./bach/midiclassics')
 names.remove('.DS_Store')
 
 # Change this part to adjust the file or folder you want to open
 
-with open('./texts/mixed/mixed.txt', 'wb') as f:
+with open('./texts/midiclassics/midiclassics.txt', 'wb') as f:
     for die in names:
         count = 0
-        ls = os.listdir('./bach/mixed/' + die)
+        ls = os.listdir('./bach/midiclassics/' + die)
         for name in ls:
-            print(die, name)
-            count += 1
-            print (str(count) + '/' + str(len(ls)))
-            pattern = midi.read_midifile('./bach/mixed/' + die + '/' + name)
-            song_txt = midi_to_txt(pattern)
-            f.write(song_txt.replace('/', ' ').rstrip() + '\n')
+            try:
+                print(die, name)
+                count += 1
+                print (str(count) + '/' + str(len(ls)))
+                pattern = midi.read_midifile('./bach/midiclassics/' + die + '/' + name)
+                song_txt = midi_to_txt(pattern)
+                f.write(song_txt.replace('/', ' ').rstrip() + '\n')
+            except:
+                print('Error with:', die, name)

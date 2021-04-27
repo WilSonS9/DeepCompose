@@ -16,7 +16,7 @@ names = os.listdir('./texts')
 fName = '9'
         
 # Input file
-with open('./texts/mixed/' + fName + '.txt', 'rb') as f:
+with open('./texts/midiclassics/' + fName + '.txt', 'rb') as f:
     song_txt = f.read()
 
 pattern = midi.Pattern()
@@ -100,4 +100,4 @@ for song_txt2 in song_txt:
 track.append(midi.EndOfTrackEvent(tick=1))
 
 # Output file
-midi.write_midifile("./generated/mixed/" + fName + ".mid", pattern)
+midi.write_midifile("./generated/midiclassics/" + fName + ".mid", pattern)
