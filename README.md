@@ -2,10 +2,10 @@
 Min repo för projektet DeepCompose.
 
 ## Vad?
-DeepCompose är ett projekt vars mål är att skapa ett AI som kan skapa musik likt Bach och andra kompositörer.
+DeepCompose är ett projekt vars mål är att skapa en AI som kan skapa musik likt Bach och andra kompositörer.
 
 ## Hur?
-AIn använder GPT-2 modellen för att träna på alla Bachs verk, som scrapats från [BachCentral](http://www.bachcentral.com/midiindexcomplete.html) som midi och sedan omvandlat med *midi_to_txt.py* till en .txt fil, som GPT-2 gärna tränar på. Denna fil innehåller dock bara det första tracket och resterande tracks tas bort. Efter detta genererar den ett par verk, som man senare kan cleana och omvandla till .mid filer med *txt_to_midi.py*, och senare spela upp med valfri midi-spelare, exempelvis [denna](http://midiplayer.ehubsoft.net/).
+AIn använder GPT-2 modellen för att träna på alla Bachs verk, som scrapats från [BachCentral](http://www.bachcentral.com/midiindexcomplete.html), [piano-midi.de](http://www.piano-midi.de) samt [denna] (https://www.youtube.com/watch?v=S6TVY6KGLW8) youtube video som midi filer och sedan omvandlat med *midi_to_txt.py* till en .txt fil, som GPT-2 gärna tränar på. Denna fil innehåller dock bara det första tracket och resterande tracks tas bort. Efter detta genererar den ett par verk, som man senare kan cleana och omvandla till .mid filer med *txt_to_midi.py*, och senare spela upp med valfri midi-spelare, exempelvis [denna](http://midiplayer.ehubsoft.net/).
 
 Om man vill se hur träningen och genereringen ser ut kan man gå till [denna](https://colab.research.google.com/drive/1c3TKpM5sVTNjKenbBkkXnodo6GdYEOwG#scrollTo=N8KXuKWzQSsN) länk till Google Colab-en där allting sker. Detta verktyg är likt Jupyter Notebook men all kod körs på Googles datorer, så du kan använda din datorkraft för annat (exempelvis för att mina bitcoin). Källkoden för *midi_to_txt.py* och *txt_to_midi.py* kommer ifrån [MidiToText](https://github.com/dangeng/MidiToText) repon, och har modifierats lite för att anpassas för datans struktur och utdatans önskade struktur.
 
@@ -23,4 +23,6 @@ I *texts*-mappen ligger alla .txt filer, både *composite.txt* som innehåller (
 
 I *generated*- mappen ligger alla .mid filer som konverterats från .txt filer i *texts*-mappen.
 
-I Google Colab-en finns koden som tränar AIn, men även en kopia av *composite.txt* och vikterna.
+Scriptet *unpack.py* användes för att fixa strukturen för *midiclassics* datasetet genom att flytta ut filerna från sub-directories inuti varje kompositörs egna folder.
+
+I Google Colab-en finns koden som tränar AIn, kod för att generera texterna samt vikterna.
