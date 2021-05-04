@@ -15,7 +15,7 @@ names = os.listdir('./texts')
 
 # File name, will an output file with this name and try to read a file with this name
 # If the output file doesn't have the same name as the input file, just change the input files and output files manually
-fName = '1'
+fName = '10'
 
 # Input file
 with open('./texts/5000/' + fName + '.txt', 'rb') as f:
