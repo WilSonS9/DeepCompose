@@ -17,9 +17,9 @@ Den huvudsakliga anledningen till att detta projekt körs är eftersom det tycks
 ## Struktur
 I DeepCompose-mappen ligger all data och kod. Scripten *midi_to_txt.py* och *txt_to_midi.py* har ganska självförklarande syften, men i dessa finns kommentarer som visar var man måste ändra i koden för att anpassa till egna fil- och mappnamn beroende på var man har sina filer.
 
-I *bach*-mappen ligger all data, som består av mappar med .mid filer med nästan alla Bachs verk (några var felaktigt formatterade och fungerade därför inte med *midi_to_txt.py*).
+I *bach*-mappen ligger all data, som består av mappar med .mid filer med nästan alla Bachs verk (några var felaktigt formatterade och fungerade därför inte med *midi_to_txt.py*). Här ligger även de två andra dataset som använts.
 
-I *texts*-mappen ligger alla .txt filer, både *composite.txt* som innehåller (nästan) alla Bachs verk sepparerade med newline samt de texter som AIn genererade och för hand matats in i filerna.
+I *texts*-mappen ligger alla .txt filer i folders beroende på vilket dataset som använts. I 5000-mappen ligger det som genererats för midiclassics-datasetet fast som tränats 10 ggr. längre.
 
 I *generated*- mappen ligger alla .mid filer som konverterats från .txt filer i *texts*-mappen.
 
