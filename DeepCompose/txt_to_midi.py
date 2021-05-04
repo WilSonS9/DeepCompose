@@ -3,20 +3,22 @@ import os
 from random import randint
 from numpy import inf
 
+
 class NoteEvent():
     def __init__(self, time, val, on):
         self.time = time
         self.val = val
         self.on = on
 
+
 names = os.listdir('./texts')
 
 # File name, will an output file with this name and try to read a file with this name
 # If the output file doesn't have the same name as the input file, just change the input files and output files manually
-fName = '9'
-        
+fName = '1'
+
 # Input file
-with open('./texts/midiclassics/' + fName + '.txt', 'rb') as f:
+with open('./texts/5000/' + fName + '.txt', 'rb') as f:
     song_txt = f.read()
 
 pattern = midi.Pattern()
@@ -66,21 +68,23 @@ for song_txt2 in song_txt:
 
             val += delta_val
             # print(val)
-            
+
             # dur is inverse of duration...
             if dur > min_dur:
                 min_dur = dur
 
             events_to_sort.append(NoteEvent(time, val, True))
-            events_to_sort.append(NoteEvent(time + 16 / float(dur) * tempo, val, False))
+            events_to_sort.append(
+                NoteEvent(time + 16 / float(dur) * tempo, val, False))
 
         time = time + 16 / float(min_dur) * tempo
 
     sorted_events = sorted(events_to_sort, key=lambda x: x.time)
 
-    track.append(midi.NoteOnEvent(tick=0, velocity=70, pitch=sorted_events[0].val))
+    track.append(midi.NoteOnEvent(
+        tick=0, velocity=70, pitch=sorted_events[0].val))
 
-    for idx in range(1,len(sorted_events)):
+    for idx in range(1, len(sorted_events)):
         evt = sorted_events[idx]
         prev_evt = sorted_events[idx-1]
         tick = int(evt.time - prev_evt.time)
@@ -100,4 +104,4 @@ for song_txt2 in song_txt:
 track.append(midi.EndOfTrackEvent(tick=1))
 
 # Output file
-midi.write_midifile("./generated/midiclassics/" + fName + ".mid", pattern)
+midi.write_midifile("./generated/5000/" + fName + ".mid", pattern)
