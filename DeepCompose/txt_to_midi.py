@@ -3,11 +3,13 @@ import os
 from random import randint
 from numpy import inf
 
+
 class NoteEvent():
     def __init__(self, time, val, on):
         self.time = time
         self.val = val
         self.on = on
+
 
 names = os.listdir('./texts')
 
@@ -66,21 +68,23 @@ for song_txt2 in song_txt:
 
             val += delta_val
             # print(val)
-            
+
             # dur is inverse of duration...
             if dur > min_dur:
                 min_dur = dur
 
             events_to_sort.append(NoteEvent(time, val, True))
-            events_to_sort.append(NoteEvent(time + 16 / float(dur) * tempo, val, False))
+            events_to_sort.append(
+                NoteEvent(time + 16 / float(dur) * tempo, val, False))
 
         time = time + 16 / float(min_dur) * tempo
 
     sorted_events = sorted(events_to_sort, key=lambda x: x.time)
 
-    track.append(midi.NoteOnEvent(tick=0, velocity=70, pitch=sorted_events[0].val))
+    track.append(midi.NoteOnEvent(
+        tick=0, velocity=70, pitch=sorted_events[0].val))
 
-    for idx in range(1,len(sorted_events)):
+    for idx in range(1, len(sorted_events)):
         evt = sorted_events[idx]
         prev_evt = sorted_events[idx-1]
         tick = int(evt.time - prev_evt.time)
