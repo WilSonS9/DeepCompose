@@ -12,7 +12,7 @@ Om man vill se hur träningen och genereringen ser ut kan man gå till [denna](h
 **OBS! Dessa script är skrivna i Python2, liksom några av de libraries som används av scripten. De kommer inte att fungera med Python3!**
 
 ## Varför?
-Den huvudsakliga anledningen till att detta projekt körs är eftersom det tycks vara en kul och rolig grej, men det kan även tjäna ett lärande syfte och för att svara på frågor såsom *"Kan ett AI skriva bra musik?"* och *"Är musik ett naturligt språk?"*.
+Den huvudsakliga anledningen till att detta projekt körs är eftersom det tycks vara en kul och rolig grej, men det kan även tjäna ett lärande syfte och för att svara på frågor såsom *"Kan en AI skriva bra musik?"* och *"Är musik ett naturligt språk?"*.
 
 ## Struktur
 I DeepCompose-mappen ligger all data och kod. Scripten *midi_to_txt.py* och *txt_to_midi.py* har ganska självförklarande syften, men i dessa finns kommentarer som visar var man måste ändra i koden för att anpassa till egna fil- och mappnamn beroende på var man har sina filer.
