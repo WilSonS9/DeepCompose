@@ -15,8 +15,13 @@ names = os.listdir('./texts')
 
 # File name, will an output file with this name and try to read a file with this name
 # If the output file doesn't have the same name as the input file, just change the input files and output files manually
+<<<<<<< Updated upstream
 fName = '4'
         
+=======
+fName = '1'
+
+>>>>>>> Stashed changes
 # Input file
 with open('./texts/50000/' + fName + '.txt', 'rb') as f:
     song_txt = f.read()
